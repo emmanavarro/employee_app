@@ -12,7 +12,7 @@
 
 <p>
   <strong>Phone:</strong>
-  <%= @employee.phone %>
+  <%= to_phone(@employee.phone) %>
 </p>
 
 <p>
@@ -22,7 +22,7 @@
 
 <p>
   <strong>Salary:</strong>
-  <%= @employee.salary %>
+  <%= to_currency(@employee.salary) %>
 </p>
 
 <p>
