@@ -1,9 +1,19 @@
 class EmployeesController < ApplicationController
+  require 'csv'
   before_action :set_employee, only: %i[ show edit update destroy ]
 
   # GET /employees or /employees.json
   def index
     @employees = Employee.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @employees.to_csv(['first_name', 'last_name', 'phone', 'email', 'position', 'salary', 'department']) }
+    end
+  end
+
+  def import
+    Employee.import(params[:file])
+    redirect_to employees_url, notice: "Employees were successfully imported."
   end
 
   # GET /employees/1 or /employees/1.json
