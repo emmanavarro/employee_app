@@ -38,7 +38,7 @@
 
 <%= form_tag import_employees_path, multipart: true do %>
   <div class="form-group">
-    <%= link_to "Export CSV", employees_path(format: :csv) %>
+    <%= link_to "Download CSV file", employees_path(format: :csv) %>
   </div>
 
   <div class="form-group">
@@ -46,7 +46,7 @@
   </div>
 
   <div class="form-group">
-    <%= submit_tag "Import CSV" %>
+    <%= submit_tag "Upload CSV file" %>
   </div>
 <% end %>
 
